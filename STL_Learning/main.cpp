@@ -33,7 +33,9 @@ int main(int argc, const char * argv[]) {
     //   UNDERSTANDING BASIC CONCEPT OF STL
     //  ======================================
     
+    
     // vector - a common container
+    cout << "understanding BASIC STL usage" << endl;
     vector<int> vec;
     
     vec.push_back(4);
@@ -80,7 +82,8 @@ int main(int argc, const char * argv[]) {
     */
     
     // VECTOR -  dynamically allocated contiguous array in memory
-
+    cout << "     VECTOR  " << endl;
+    
     vector<int> v;
     cout << "Size is " << v.size() << endl;
     
@@ -116,6 +119,32 @@ int main(int argc, const char * argv[]) {
     p[1] = 100;
     cout << p[0] << " " << p[1] << endl;
     
+    // common API (member functions) for all containers
+    cout << "common API's usage" << endl;
+    
+    if(!v.empty())
+        cout << v.size() << endl;
+    
+    vector<int> v2(v); // copy constructor, v2 = {1,100}
+    
+    for( auto i: v2)
+        cout << i << " ";
+    cout << endl;
+    
+    v.clear(); // remove all items in v
+    v2.swap(v); // v2 now becomes empty
+    
+    cout << v2.size() << endl;
+    
+    /*
+     
+     PROPERTIES OF VECTOR:
+     =====================
+     1. Fast insert/remove at the end: O(1)
+     2. Slow insert/remove at the begining or in the middle: O(n)  because all other elements have to shifted one slot
+     3. Slow search: O(n)
+     
+     */
     
     
     return 0;
