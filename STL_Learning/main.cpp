@@ -147,5 +147,31 @@ int main(int argc, const char * argv[]) {
      */
     
     
+    // DEQUE - almost like vector but grows in two direction - not contagious
+    cout << "     DEQUE   " << endl;
+    
+    deque<int> d = {1,2};
+    d.push_back(3);
+    d.push_front(-1);
+    
+    for(auto i: d)
+        cout << i << " ";
+    cout << endl;
+    
+    cout << "Size is " << d.size() << endl;
+    cout << d[2] << endl;
+    
+    
+    /*
+     
+     PROPERTIES OF DEQUE:
+     =====================
+     1. Fast insert/remove at the begining and the end: O(1)
+     2. Slow insert/remove at the begining or in the middle: O(n)  because all other elements have to shifted one slot
+     3. Slow search: O(n)
+     
+     */
+    
+    
     return 0;
 }
