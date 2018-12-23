@@ -15,6 +15,9 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
+    //   UNDERSTANDING BASIC CONCEPT OF STL
+    //  ======================================
+    
     // vector - a common container
     vector<int> vec;
     
@@ -40,6 +43,25 @@ int main(int argc, const char * argv[]) {
     
     for(vector<int>::iterator itr = itr1; itr != itr2; itr++)
         cout << *itr << " ";
+    
+    
+    //   CONTAINERS
+    // =============
+    
+    /*
+     
+     There are 3 types of containers :
+     
+      1) Sequence containers (array and linked list)
+        --- STL provides: vector, deque, list, forward list, array
+     
+      2) Associative containers (binary tree) [key-value pair and elements are sorted by key]
+        --- STL provides:  set, multiset, map, multimap
+     
+      3) Unordered containers (hash table)
+        --- STL provides: unordered_map, unordered_multimap, unordered_set, unordered_multiset
+     
+    */
     
     
     return 0;
