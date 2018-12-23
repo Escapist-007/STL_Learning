@@ -58,6 +58,7 @@ int main(int argc, const char * argv[]) {
     
     for(vector<int>::iterator itr = itr1; itr != itr2; itr++)
         cout << *itr << " ";
+    cout << endl;
     
     
     //   CONTAINERS
@@ -77,6 +78,44 @@ int main(int argc, const char * argv[]) {
         --- STL provides: unordered_map, unordered_multimap, unordered_set, unordered_multiset
      
     */
+    
+    // VECTOR -  dynamically allocated contiguous array in memory
+
+    vector<int> v;
+    cout << "Size is " << v.size() << endl;
+    
+    v.push_back(1);
+    v.push_back(-2);  // v.size() is 2
+    
+    // Random access in vector
+    cout << "Random access in vector" << endl;
+    cout << v[1] << endl;  // no range check
+    cout << v.at(1) << endl;  // throw range_error exception if index is out of range
+    
+    cout << v[2] << endl;  // unknown memory address
+    // cout << v.at(2) << endl;   // throw error
+    
+    
+    // Accessing all elements
+    // option 01 (slower)
+    for (int i=0; i<v.size(); i++)
+        cout << v[i] << " ";
+    cout << endl;
+    
+    // option 02 (universal way of traversing a container), faster
+    for(vector<int>::iterator it = v.begin();it != v.end(); it++)
+        cout << *it << " ";
+    cout << endl;
+    
+    // option 03 - c++ 11
+    for (auto i : v)
+        cout << i << " ";
+    cout << endl;
+    
+    int* p = &v[0];
+    p[1] = 100;
+    cout << p[0] << " " << p[1] << endl;
+    
     
     
     return 0;
