@@ -172,6 +172,50 @@ int main(int argc, const char * argv[]) {
      
      */
     
+    // LIST - Doubly Linked List
+    cout << "      LIST     "  << endl;
+    
+    list<int> l = {11,2,45};
+    l.push_back(12);
+    l.push_front(21);   // l = {21, 11, 2, 45, 12}
+    
+    list<int>::iterator it = find(l.begin(), l.end(),11);  // find() is an algorithm which will return an iterator pointing to the element 11
+    cout << *it << endl;  // 11
+    
+    // faster insertion than vector/deque. take O(1) time
+    l.insert(it, 8);  // l = {21, 8, 11, 2, 45, 12}
+    
+
+    for(auto i: l)
+        cout << i << " ";
+    cout << endl;
+    
+    l.erase(it);  // removd 11 . take O(1) time
+    
+    for(auto i: l)
+        cout << i << " ";
+    cout << endl;
+    
+    
+    /*
+     
+     PROPERTIES OF LIST:
+     =====================
+     1. Fast insert/remove at any place : O(1)
+     2. Slow search: O(n). Its is slower than vector/deque because its not contagious (no cache benfit, lots of cache miss). So no locality of memory.
+     3. No random access. no [] operator.
+     
+     */
+    
+    // special function of list : splice()
+    list<int> l2 = {1,2,3};
+    list<int>::iterator itr = l2.end();
+    
+    l2.splice(itr, l, l.begin(),  l.end());  // l2 = {1,2,3,21,8,2,45,12}
+    
+    for(auto i: l2)
+        cout << i << " ";
+    cout << endl;
     
     return 0;
 }
