@@ -25,6 +25,8 @@
 #include <numeric>   // some numeric algorithm
 #include <functional>
 
+#include <array>
+
 
 using namespace std;
 
@@ -216,6 +218,17 @@ int main(int argc, const char * argv[]) {
     for(auto i: l2)
         cout << i << " ";
     cout << endl;
+    
+    // ARRAY
+    cout << "      ARRAY     "  << endl;
+    // a and b are different type as their size is not same. Drawback of array container
+    array<int, 3> a = {2,3,4};
+    array<int, 4> b = {1,2,3,4};
+    
+    cout << a[1] << endl;
+    cout << b.size() << endl;
+    
+    
     
     return 0;
 }
