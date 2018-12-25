@@ -313,7 +313,7 @@ int main(int argc, const char * argv[]) {
      PROPERTIES OF SET/MULTISET:
      =====================
      1. Fast searche : O(log(n))
-     2. Traversing is slow
+     2. Traversing is slow. Same locality problem like list.
      3. No random access. no [] operator.
      
      */
