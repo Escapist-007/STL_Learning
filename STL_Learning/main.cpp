@@ -32,8 +32,9 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    //   UNDERSTANDING BASIC CONCEPT OF STL
-    //  ======================================
+                               /*   UNDERSTANDING BASIC CONCEPT OF STL
+                                   ======================================
+                                                                        */
     
     
     // vector - a common container
@@ -65,6 +66,7 @@ int main(int argc, const char * argv[]) {
     cout << endl;
     
     
+    
     //   CONTAINERS
     // =============
     
@@ -83,7 +85,10 @@ int main(int argc, const char * argv[]) {
      
     */
     
-    // VECTOR -  dynamically allocated contiguous array in memory
+    
+                               // VECTOR -  dynamically allocated contiguous array in memory
+    
+    
     cout << "     VECTOR  " << endl;
     
     vector<int> v;
@@ -149,8 +154,10 @@ int main(int argc, const char * argv[]) {
      */
     
     
-    // DEQUE - almost like vector but grows in two direction - not contagious
-    cout << "     DEQUE   " << endl;
+                                // DEQUE - almost like vector but grows in two direction - not contagious
+    
+    
+    cout << "      DEQUE   " << endl;
     
     deque<int> d = {1,2};
     d.push_back(3);
@@ -174,7 +181,10 @@ int main(int argc, const char * argv[]) {
      
      */
     
-    // LIST - Doubly Linked List
+    
+                               // LIST - Doubly Linked List
+    
+    
     cout << "      LIST     "  << endl;
     
     list<int> l = {11,2,45};
@@ -228,6 +238,85 @@ int main(int argc, const char * argv[]) {
     cout << a[1] << endl;
     cout << b.size() << endl;
     
+    
+                               // SET & MULTISET - Associative Container
+    
+    cout << "      SET     "  << endl;
+    
+    set<int> s;
+    
+    s.insert(23);
+    s.insert(3);
+    s.insert(5029);  // s = {3, 23, 5029} , insertion time : O(log(n))
+    
+    // Elements are always sorted and no duplicate. Set is implemented using binary tree.
+    
+    set<int>::iterator itrr;
+    
+    itrr = s.find(23);  // find() will find the element 23 and return an iterator
+    
+    cout << *itrr << endl;
+    
+    pair <set<int>::iterator, bool> ret;
+    
+    ret = s.insert(23);   // insert() will return a pair (iterator, boolean value). If the element is inserted then the boolean value will be true.
+                          // iterator in the pair always point the element in the set.
+    // Here, 23 won't be inserted as 23 is already in s.
+    
+    cout << "Returned pair : " << "Iterator's value - " << *ret.first << ", " << "Boolean Value - " << ret.second << endl;
+    
+    if(ret.second==false)
+        itrr = ret.first;
+    
+    s.insert(itrr,1105023);  // Here, itrr just give a hint to insert() method for insertion. Like it can decrease the time from O(log(n)) to o(1) at best.
+                             // But itrr still points to 23. s = {3, 23, 5029, 1105023}
+    
+    cout << "Before caliing erase() :" <<endl;
+    for(auto i: s)
+        cout << i << " ";
+    cout << endl;
+    
+    s.erase(itrr); // Remove 23
+    
+    cout << "After caliing erase() :" <<endl;
+    for(auto i: s)
+        cout << i << " ";
+    cout << endl;
+    
+    
+    
+    // multiset is a set that allows duplicate items
+    multiset<int> ms = {1,1,2,2,3};
+    
+    cout << "Elements in a multiset" <<endl;
+    
+    for(auto i: ms)
+        cout << i << " ";
+    cout << endl;
+    
+    // set/multiset : Value of the elements can't be updated.
+    
+    itrr = ms.find(2);  // returns the first occurence of 2
+    
+    cout<< *itrr <<endl;
+    // *itrr = 50; --> Not possible . Read-only value because if it is allowed then whole tree structure will be corrupted
+    
+    ms.erase(itrr);
+    
+    for(auto i: ms)
+        cout << i << " ";
+    cout << endl;
+    
+    
+    /*
+     
+     PROPERTIES OF SET/MULTISET:
+     =====================
+     1. Fast searche : O(log(n))
+     2. Traversing is slow
+     3. No random access. no [] operator.
+     
+     */
     
     
     return 0;
