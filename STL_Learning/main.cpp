@@ -88,8 +88,9 @@ int main(int argc, const char * argv[]) {
     
                                // VECTOR -  dynamically allocated contiguous array in memory
     
-    
-    cout << "     VECTOR  " << endl;
+    cout << endl;
+    cout << "      VECTOR  " << endl;
+    cout << endl;
     
     vector<int> v;
     cout << "Size is " << v.size() << endl;
@@ -156,8 +157,10 @@ int main(int argc, const char * argv[]) {
     
                                 // DEQUE - almost like vector but grows in two direction - not contagious
     
-    
+    cout << endl;
     cout << "      DEQUE   " << endl;
+    cout << endl;
+    
     
     deque<int> d = {1,2};
     d.push_back(3);
@@ -184,8 +187,9 @@ int main(int argc, const char * argv[]) {
     
                                // LIST - Doubly Linked List
     
-    
+    cout << endl;
     cout << "      LIST     "  << endl;
+    cout << endl;
     
     list<int> l = {11,2,45};
     l.push_back(12);
@@ -229,8 +233,13 @@ int main(int argc, const char * argv[]) {
         cout << i << " ";
     cout << endl;
     
-    // ARRAY
+                                 // ARRAY
+    
+    cout << endl;
     cout << "      ARRAY     "  << endl;
+    cout << endl;
+    
+    
     // a and b are different type as their size is not same. Drawback of array container
     array<int, 3> a = {2,3,4};
     array<int, 4> b = {1,2,3,4};
@@ -240,8 +249,10 @@ int main(int argc, const char * argv[]) {
     
     
                                // SET & MULTISET - Associative Container
-    
+    cout << endl;
     cout << "      SET     "  << endl;
+    cout << endl;
+    
     
     set<int> s;
     
@@ -285,6 +296,12 @@ int main(int argc, const char * argv[]) {
     
     
     
+    cout << endl;
+    cout << "      MULTISET     "  << endl;
+    cout << endl;
+    
+    
+    
     // multiset is a set that allows duplicate items
     multiset<int> ms = {1,1,2,2,3};
     
@@ -317,6 +334,57 @@ int main(int argc, const char * argv[]) {
      3. No random access. no [] operator.
      
      */
+    
+                                  // MAP & MULTIMAP - Associative Container
+    cout << endl;
+    cout << "      MAP     "  << endl;
+    cout << endl;
+    
+    
+    map<char,int> mp;
+    
+    mp.insert( pair<char,int>('a',97) );
+    mp.insert( make_pair('a', 97));  // This is convenient for inserting a pair. Map is sorted by key and no duplicate key is allowed
+    mp.insert( make_pair('b', 98));  // mp = { (a,97), (b, 98) }
+    
+    cout << "Printing the elements in map" <<endl;
+    
+    for(auto i: mp)
+        cout << i.first << " " << i.second << endl;
+    cout << endl;
+    
+    map<char,int>::iterator itrrr = mp.end();
+    mp.insert(itrrr, make_pair('c',99));   // 'itrrr' is giving hint for insertion
+    
+    for(auto i: mp)
+        cout << i.first << " " << i.second << endl;
+    cout << endl;
+    
+    itrrr = mp.find('b');
+    
+    cout<< (*itrrr).first << " " << (*itrrr).second <<endl;
+    
+    
+    
+    
+    cout << endl;
+    cout << "      MULTIMAP    "  << endl;
+    cout << endl;
+    
+    
+    // multimap is a map that allows duplicate keys
+    multimap<char,int> mm;
+    
+    mm.insert( make_pair('a',99));
+    mm.insert( make_pair('a',99));
+    
+    cout << "Elements in a multimap" <<endl;
+    
+    for(auto i: mm)
+        cout << i.first << " " << i.second <<endl;
+    cout << endl;
+    
+    // map/multimap : Value of the keys can't be updated.
     
     
     return 0;
