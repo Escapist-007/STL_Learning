@@ -365,6 +365,24 @@ int main(int argc, const char * argv[]) {
     cout<< (*itrrr).first << " " << (*itrrr).second <<endl;
     
     
+    // saving all characters with ascii code in a map
+    cout << "Saving 26 characters with ASCII code in a map" <<endl;
+
+    pair<char,int> pp;
+    mp.clear();
+    
+    for(char ch ='a'; ch <= 'z'; ch++){
+        pp.first = ch;
+        pp.second = (int)ch;
+        
+        mp.insert(pp);
+    }
+    
+    for(auto i:mp)
+        cout << i.first << " " << i.second << endl;
+    cout << endl;
+    
+        
     
     
     cout << endl;
